@@ -1,0 +1,31 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug HTTP server",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/http.js",
+      "preLaunchTask": "npm: build",
+      "envFile": "${workspaceFolder}/.env",
+      "env": {
+        "PORT": "3000",
+        "HOST": "127.0.0.1"
+      },
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/build/**/*.js"],
+      "skipFiles": ["<node_internals>/**"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Attach to stdio server (port 9229)",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "restart": true,
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/build/**/*.js"],
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ]
+}
